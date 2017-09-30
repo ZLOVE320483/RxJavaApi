@@ -1,8 +1,8 @@
-package com.zlove.upgrade.rx.method;
+package com.zlove.upgrade.rx.method.filter;
 
 import android.widget.TextView;
 
-import java.util.concurrent.TimeUnit;
+import com.zlove.upgrade.rx.method.SubscribeMethod;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -10,37 +10,38 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by ZLOVE on 17/9/23.
+ * Created by zlove on 2017/9/28.
  */
 
-public class IntervalMethod implements SubscribeMethod {
+public class DistinctUntilChangedMethod implements SubscribeMethod {
 
-    private Observable<Long> observable;
-    private Subscriber<Long> subscriber;
+    private Observable<Integer> observable;
+    private Subscriber<Integer> subscriber;
 
     private StringBuilder builder;
 
-    public IntervalMethod(final TextView tvContent) {
+    public DistinctUntilChangedMethod(final TextView tvContent) {
         builder = new StringBuilder();
-        observable = Observable.interval(1, 2, TimeUnit.SECONDS);
 
-        subscriber = new Subscriber<Long>() {
+        observable = Observable.just(1, 2, 3, 1, 1, 2).distinctUntilChanged();
+        subscriber = new Subscriber<Integer>() {
             @Override
             public void onCompleted() {
-                tvContent.setText("onCompleted()");
-            }
-
-            @Override
-            public void onError(Throwable throwable) {
-
-            }
-
-            @Override
-            public void onNext(Long o) {
-                builder.append("onNext---");
-                builder.append(o);
+                builder.append("onCompleted---");
                 builder.append("\n");
                 tvContent.setText(builder.toString());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                builder.append("onNext---");
+                builder.append(integer);
+                builder.append("\n");
             }
         };
     }

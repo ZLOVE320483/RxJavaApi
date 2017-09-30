@@ -1,6 +1,6 @@
 package com.zlove.upgrade.rx;
 
-import com.zlove.upgrade.rx.method.FromMethod;
+import com.zlove.upgrade.rx.method.create.FromMethod;
 
 /**
  * Created by ZLOVE on 17/9/23.

@@ -1,56 +1,54 @@
-package com.zlove.upgrade.rx.method;
+package com.zlove.upgrade.rx.method.transform;
 
-import android.util.Log;
 import android.widget.TextView;
+
+import com.zlove.upgrade.rx.method.SubscribeMethod;
 
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by ZLOVE on 17/9/23.
+ * Created by zlove on 2017/9/25.
  */
 
-public class CreateMethod implements SubscribeMethod {
-
-    private static final String LOG_TAG = CreateMethod.class.getSimpleName();
+public class MapMethod implements SubscribeMethod {
 
     private Observable<String> observable;
-    private Observable.OnSubscribe<String> subscribe;
     private Subscriber<String> subscriber;
 
     private StringBuilder builder;
 
-    public CreateMethod(final TextView tvContent) {
+    public MapMethod(final TextView tvContent) {
         builder = new StringBuilder();
 
-        subscribe = new Observable.OnSubscribe<String>() {
+        observable = Observable.just(1, 2, 3).map(new Func1<Integer, String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext("Hello World!");
-                subscriber.onNext(" ");
-                subscriber.onNext("I Love Java");
-                subscriber.onCompleted();
+            public String call(Integer integer) {
+                return "call --- " + integer;
             }
-        };
-        observable = Observable.create(subscribe);
+        });
 
         subscriber = new Subscriber<String>() {
             @Override
             public void onCompleted() {
+                builder.append("---onCompleted---");
+                builder.append("\n");
                 tvContent.setText(builder.toString());
             }
 
             @Override
-            public void onError(Throwable throwable) {
+            public void onError(Throwable e) {
 
             }
 
             @Override
             public void onNext(String s) {
-                Log.d(LOG_TAG, "onNext --- s --- " + s);
+                builder.append("onNext----");
                 builder.append(s);
+                builder.append("\n");
             }
         };
     }
@@ -60,7 +58,6 @@ public class CreateMethod implements SubscribeMethod {
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
-
     }
 
     @Override

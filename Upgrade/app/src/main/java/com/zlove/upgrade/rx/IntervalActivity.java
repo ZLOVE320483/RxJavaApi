@@ -1,6 +1,6 @@
 package com.zlove.upgrade.rx;
 
-import com.zlove.upgrade.rx.method.IntervalMethod;
+import com.zlove.upgrade.rx.method.create.IntervalMethod;
 
 /**
  * Created by ZLOVE on 17/9/23.

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zlove.upgrade">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +25,29 @@
         <activity android:name=".rx.IntervalActivity"/>
         <activity android:name=".rx.TimerActivity"/>
         <activity android:name=".rx.RangeActivity"/>
+        <activity android:name=".rx.RepeatActivity"/>
+        <activity android:name=".rx.MapActivity"/>
+        <activity android:name=".rx.FlatMapActivity"/>
+        <activity android:name=".rx.ConcatMapActivity"/>
+        <activity android:name=".rx.SwitchActivity"/>
+        <activity android:name=".rx.BufferActivity"/>
+        <activity android:name=".rx.WindowActivity"/>
+        <activity android:name=".rx.ScanActivity"/>
+        <activity android:name=".rx.GroupByActivity"/>
+        <activity android:name=".rx.DebounceActivity"/>
+        <activity android:name=".rx.DistinctActivity"/>
+        <activity android:name=".rx.DistinctUntilChangedActivity"/>
+        <activity android:name=".rx.ElementAtActivity"/>
+        <activity android:name=".rx.FilterActivity"/>
+        <activity android:name=".rx.FirstActivity"/>
+        <activity android:name=".rx.SingleActivity"/>
+        <activity android:name=".rx.LastActivity"/>
+        <activity android:name=".rx.TakeActivity"/>
+        <activity android:name=".rx.TakeLastActivity"/>
+        <activity android:name=".rx.SkipActivity"/>
+        <activity android:name=".rx.SkipLastActivity"/>
+        <activity android:name=".rx.IgnoreElementsActivity"/>
+        <activity android:name=".rx.ThrottleActivity"/>
     </application>
 
 </manifest>

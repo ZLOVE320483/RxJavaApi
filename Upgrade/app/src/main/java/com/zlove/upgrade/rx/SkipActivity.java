@@ -1,16 +1,16 @@
 package com.zlove.upgrade.rx;
 
-import com.zlove.upgrade.rx.method.create.TimerMethod;
+import com.zlove.upgrade.rx.method.filter.SkipMothed;
 
 /**
- * Created by ZLOVE on 17/9/24.
+ * Created by zlove on 2017/9/30.
  */
 
-public class TimerActivity extends BaseRxActivity {
+public class SkipActivity extends BaseRxActivity {
 
     @Override
     protected void initMethod() {
-        method = new TimerMethod(tvContent);
+        method = new SkipMothed(tvContent);
     }
 
     @Override

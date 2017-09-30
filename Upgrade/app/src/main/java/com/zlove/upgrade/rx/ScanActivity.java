@@ -1,16 +1,16 @@
 package com.zlove.upgrade.rx;
 
-import com.zlove.upgrade.rx.method.create.TimerMethod;
+import com.zlove.upgrade.rx.method.transform.ScanMethod;
 
 /**
- * Created by ZLOVE on 17/9/24.
+ * Created by zlove on 2017/9/26.
  */
 
-public class TimerActivity extends BaseRxActivity {
+public class ScanActivity extends BaseRxActivity {
 
     @Override
     protected void initMethod() {
-        method = new TimerMethod(tvContent);
+        method = new ScanMethod(tvContent);
     }
 
     @Override

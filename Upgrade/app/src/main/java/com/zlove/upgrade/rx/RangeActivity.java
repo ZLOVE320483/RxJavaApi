@@ -1,6 +1,6 @@
 package com.zlove.upgrade.rx;
 
-import com.zlove.upgrade.rx.method.RangeMethod;
+import com.zlove.upgrade.rx.method.create.RangeMethod;
 
 /**
  * Created by ZLOVE on 17/9/24.

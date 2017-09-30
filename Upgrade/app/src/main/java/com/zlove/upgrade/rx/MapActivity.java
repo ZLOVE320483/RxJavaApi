@@ -1,16 +1,16 @@
 package com.zlove.upgrade.rx;
 
-import com.zlove.upgrade.rx.method.create.TimerMethod;
+import com.zlove.upgrade.rx.method.transform.MapMethod;
 
 /**
- * Created by ZLOVE on 17/9/24.
+ * Created by zlove on 2017/9/25.
  */
 
-public class TimerActivity extends BaseRxActivity {
+public class MapActivity extends BaseRxActivity {
 
     @Override
     protected void initMethod() {
-        method = new TimerMethod(tvContent);
+        method = new MapMethod(tvContent);
     }
 
     @Override

@@ -1,6 +1,8 @@
-package com.zlove.upgrade.rx.method;
+package com.zlove.upgrade.rx.method.create;
 
 import android.widget.TextView;
+
+import com.zlove.upgrade.rx.method.SubscribeMethod;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,29 +12,32 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by ZLOVE on 17/9/24.
+ * Created by ZLOVE on 17/9/23.
  */
 
-public class TimerMethod implements SubscribeMethod {
+public class IntervalMethod implements SubscribeMethod {
 
     private Observable<Long> observable;
     private Subscriber<Long> subscriber;
 
     private StringBuilder builder;
 
-    public TimerMethod(final TextView tvContent) {
+    public IntervalMethod(final TextView tvContent) {
         builder = new StringBuilder();
-        observable = Observable.timer(2, TimeUnit.SECONDS);
+        observable = Observable.interval(1, 2, TimeUnit.SECONDS);
+
         subscriber = new Subscriber<Long>() {
             @Override
             public void onCompleted() {
-                builder.append("---onCompleted---");
-                tvContent.setText(builder.toString());
+                tvContent.setText("onCompleted()");
             }
 
             @Override
             public void onError(Throwable throwable) {
-
+                builder.append("onError()---");
+                builder.append(throwable.getMessage());
+                builder.append("\n");
+                tvContent.setText(builder.toString());
             }
 
             @Override

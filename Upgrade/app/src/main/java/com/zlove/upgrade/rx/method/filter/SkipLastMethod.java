@@ -1,6 +1,8 @@
-package com.zlove.upgrade.rx.method;
+package com.zlove.upgrade.rx.method.filter;
 
 import android.widget.TextView;
+
+import com.zlove.upgrade.rx.method.SubscribeMethod;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -8,37 +10,40 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by ZLOVE on 17/9/24.
+ * Created by zlove on 2017/9/30.
  */
 
-public class RangeMethod implements SubscribeMethod {
+public class SkipLastMethod implements SubscribeMethod {
 
     private Observable<Integer> observable;
     private Subscriber<Integer> subscriber;
 
     private StringBuilder builder;
 
-    public RangeMethod(final TextView tvContent) {
+    public SkipLastMethod(final TextView tvContent) {
         builder = new StringBuilder();
 
-        observable = Observable.range(1, 5);
-
+        observable = Observable.range(0, 10).skipLast(4);
         subscriber = new Subscriber<Integer>() {
             @Override
             public void onCompleted() {
                 builder.append("onCompleted---");
+                builder.append("\n");
                 tvContent.setText(builder.toString());
             }
 
             @Override
-            public void onError(Throwable throwable) {
-
+            public void onError(Throwable e) {
+                builder.append("onError()---");
+                builder.append(e.getMessage());
+                builder.append("\n");
+                tvContent.setText(builder.toString());
             }
 
             @Override
-            public void onNext(Integer integer) {
+            public void onNext(Integer o) {
                 builder.append("onNext---");
-                builder.append(integer);
+                builder.append(o);
                 builder.append("\n");
             }
         };

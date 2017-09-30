@@ -1,6 +1,8 @@
-package com.zlove.upgrade.rx.method;
+package com.zlove.upgrade.rx.method.create;
 
 import android.widget.TextView;
+
+import com.zlove.upgrade.rx.method.SubscribeMethod;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -8,40 +10,39 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by ZLOVE on 17/9/23.
+ * Created by zlove on 2017/9/25.
  */
 
-public class JustMethod implements SubscribeMethod {
+public class RepeatMethod implements SubscribeMethod {
 
-    private String[] test = {"I", "LOVE", "U"};
-
-    private Observable<String[]> observable;
-    private Subscriber<String[]> subscriber;
+    private Observable<Integer> observable;
+    private Subscriber<Integer> subscriber;
 
     private StringBuilder builder;
 
-    public JustMethod(final TextView tvContent) {
+    public RepeatMethod(final TextView tvContent) {
         builder = new StringBuilder();
-        subscriber = new Subscriber<String[]>() {
+
+        observable = Observable.just(1, 2, 3).repeat(3);
+        subscriber = new Subscriber<Integer>() {
             @Override
             public void onCompleted() {
+                builder.append("onCompleted---");
+                builder.append("\n");
                 tvContent.setText(builder.toString());
             }
 
             @Override
-            public void onError(Throwable throwable) {
-
+            public void onError(Throwable e) {
             }
 
             @Override
-            public void onNext(String[] strings) {
-                for (int i = 0; i < strings.length; i++) {
-                    builder.append(strings[i]);
-                }
+            public void onNext(Integer integer) {
+                builder.append("onNext---");
+                builder.append(integer);
+                builder.append("\n");
             }
         };
-
-        observable = Observable.just(test);
     }
 
     @Override
