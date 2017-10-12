@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.zlove.upgrade.rx.BufferActivity;
+import com.zlove.upgrade.rx.CombineLatestActivity;
+import com.zlove.upgrade.rx.ConcatActivity;
 import com.zlove.upgrade.rx.ConcatMapActivity;
 import com.zlove.upgrade.rx.CreateActivity;
 import com.zlove.upgrade.rx.DebounceActivity;
@@ -16,6 +18,9 @@ import com.zlove.upgrade.rx.DeferActivity;
 import com.zlove.upgrade.rx.DistinctActivity;
 import com.zlove.upgrade.rx.DistinctUntilChangedActivity;
 import com.zlove.upgrade.rx.ElementAtActivity;
+import com.zlove.upgrade.rx.ErrorResumeNextActivity;
+import com.zlove.upgrade.rx.ErrorReturnActivity;
+import com.zlove.upgrade.rx.ExceptionResumeNextActivity;
 import com.zlove.upgrade.rx.FilterActivity;
 import com.zlove.upgrade.rx.FirstActivity;
 import com.zlove.upgrade.rx.FlatMapActivity;
@@ -23,21 +28,28 @@ import com.zlove.upgrade.rx.FromActivity;
 import com.zlove.upgrade.rx.GroupByActivity;
 import com.zlove.upgrade.rx.IgnoreElementsActivity;
 import com.zlove.upgrade.rx.IntervalActivity;
+import com.zlove.upgrade.rx.JoinActivity;
 import com.zlove.upgrade.rx.JustActivity;
 import com.zlove.upgrade.rx.LastActivity;
 import com.zlove.upgrade.rx.MapActivity;
+import com.zlove.upgrade.rx.MergeActivity;
 import com.zlove.upgrade.rx.RangeActivity;
 import com.zlove.upgrade.rx.RepeatActivity;
+import com.zlove.upgrade.rx.RetryActivity;
+import com.zlove.upgrade.rx.RetryWhenActivity;
 import com.zlove.upgrade.rx.ScanActivity;
 import com.zlove.upgrade.rx.SingleActivity;
 import com.zlove.upgrade.rx.SkipActivity;
 import com.zlove.upgrade.rx.SkipLastActivity;
+import com.zlove.upgrade.rx.StartWithActivity;
+import com.zlove.upgrade.rx.Switch2Activity;
 import com.zlove.upgrade.rx.SwitchActivity;
 import com.zlove.upgrade.rx.TakeActivity;
 import com.zlove.upgrade.rx.TakeLastActivity;
 import com.zlove.upgrade.rx.ThrottleActivity;
 import com.zlove.upgrade.rx.TimerActivity;
 import com.zlove.upgrade.rx.WindowActivity;
+import com.zlove.upgrade.rx.ZipActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,7 +83,19 @@ public class MainActivity extends AppCompatActivity {
             "Skip",
             "SkipLast",
             "IgnoreElements",
-            "Throttle"
+            "Throttle",
+            "Zip",
+            "Merge",
+            "Concat",
+            "CombineLatest",
+            "Join",
+            "StartWith",
+            "Switch2",
+            "ErrorReturn",
+            "ErrorResumeNext",
+            "ExceptionResumeNext",
+            "Retry",
+            "RetryWhen"
     };
 
     private ListView listView;
@@ -179,6 +203,42 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 29:
                         startActivity(new Intent(MainActivity.this, ThrottleActivity.class));
+                        break;
+                    case 30:
+                        startActivity(new Intent(MainActivity.this, ZipActivity.class));
+                        break;
+                    case 31:
+                        startActivity(new Intent(MainActivity.this, MergeActivity.class));
+                        break;
+                    case 32:
+                        startActivity(new Intent(MainActivity.this, ConcatActivity.class));
+                        break;
+                    case 33:
+                        startActivity(new Intent(MainActivity.this, CombineLatestActivity.class));
+                        break;
+                    case 34:
+                        startActivity(new Intent(MainActivity.this, JoinActivity.class));
+                        break;
+                    case 35:
+                        startActivity(new Intent(MainActivity.this, StartWithActivity.class));
+                        break;
+                    case 36:
+                        startActivity(new Intent(MainActivity.this, Switch2Activity.class));
+                        break;
+                    case 37:
+                        startActivity(new Intent(MainActivity.this, ErrorReturnActivity.class));
+                        break;
+                    case 38:
+                        startActivity(new Intent(MainActivity.this, ErrorResumeNextActivity.class));
+                        break;
+                    case 39:
+                        startActivity(new Intent(MainActivity.this, ExceptionResumeNextActivity.class));
+                        break;
+                    case 40:
+                        startActivity(new Intent(MainActivity.this, RetryActivity.class));
+                        break;
+                    case 41:
+                        startActivity(new Intent(MainActivity.this, RetryWhenActivity.class));
                         break;
                     default:
                         break;

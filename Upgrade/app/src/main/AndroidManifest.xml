@@ -48,6 +48,18 @@
         <activity android:name=".rx.SkipLastActivity"/>
         <activity android:name=".rx.IgnoreElementsActivity"/>
         <activity android:name=".rx.ThrottleActivity"/>
+        <activity android:name=".rx.ZipActivity"/>
+        <activity android:name=".rx.MergeActivity"/>
+        <activity android:name=".rx.ConcatActivity"/>
+        <activity android:name=".rx.CombineLatestActivity"/>
+        <activity android:name=".rx.JoinActivity"/>
+        <activity android:name=".rx.StartWithActivity"/>
+        <activity android:name=".rx.Switch2Activity"/>
+        <activity android:name=".rx.ErrorReturnActivity"/>
+        <activity android:name=".rx.ErrorResumeNextActivity"/>
+        <activity android:name=".rx.ExceptionResumeNextActivity"/>
+        <activity android:name=".rx.RetryActivity"/>
+        <activity android:name=".rx.RetryWhenActivity"/>
     </application>
 
 </manifest>
