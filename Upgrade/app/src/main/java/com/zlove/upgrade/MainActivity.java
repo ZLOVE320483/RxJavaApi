@@ -48,8 +48,11 @@ import com.zlove.upgrade.rx.TakeActivity;
 import com.zlove.upgrade.rx.TakeLastActivity;
 import com.zlove.upgrade.rx.ThrottleActivity;
 import com.zlove.upgrade.rx.TimerActivity;
+import com.zlove.upgrade.rx.ToMapActivity;
+import com.zlove.upgrade.rx.ToSortedListActivity;
 import com.zlove.upgrade.rx.WindowActivity;
 import com.zlove.upgrade.rx.ZipActivity;
+import com.zlove.upgrade.rx.ToListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
             "ErrorResumeNext",
             "ExceptionResumeNext",
             "Retry",
-            "RetryWhen"
+            "RetryWhen",
+            "ToList",
+            "ToMap",
+            "ToSortedList"
     };
 
     private ListView listView;
@@ -239,6 +245,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 41:
                         startActivity(new Intent(MainActivity.this, RetryWhenActivity.class));
+                        break;
+                    case 42:
+                        startActivity(new Intent(MainActivity.this, ToListActivity.class));
+                        break;
+                    case 43:
+                        startActivity(new Intent(MainActivity.this, ToMapActivity.class));
+                        break;
+                    case 44:
+                        startActivity(new Intent(MainActivity.this, ToSortedListActivity.class));
                         break;
                     default:
                         break;

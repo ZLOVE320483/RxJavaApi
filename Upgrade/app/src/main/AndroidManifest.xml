@@ -60,6 +60,10 @@
         <activity android:name=".rx.ExceptionResumeNextActivity"/>
         <activity android:name=".rx.RetryActivity"/>
         <activity android:name=".rx.RetryWhenActivity"/>
+        <activity android:name=".rx.ToListActivity"/>
+        <activity android:name=".rx.ToMapActivity"/>
+        <activity android:name=".rx.ToSortedListActivity"/>
     </application>
+
 
 </manifest>
